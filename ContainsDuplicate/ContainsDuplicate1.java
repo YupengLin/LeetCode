@@ -1,5 +1,6 @@
 package ContainsDuplicate;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class ContainsDuplicate1 {
@@ -14,6 +15,27 @@ public class ContainsDuplicate1 {
 		}
 		return false;
     }
+	  public boolean containsNearbyDuplicate(int[] nums, int k) {
+	   Hashtable <Integer, ArrayList<Integer>> summary = new Hashtable<>();
+	   for(int i = 0; i < nums.length; i++) {
+		   if(!summary.containsKey(nums[i])) {
+			   ArrayList<Integer> index = new ArrayList<>();
+			   index.add(new Integer(i));
+			   summary.put(nums[i], index);
+		   } else {
+			  ArrayList<Integer> index = summary.get(nums[i]);
+			  int nearby = index.get(index.size() - 1);
+			  if( i - nearby <= k) {
+				  return true;
+			  } else {
+				  index.add(new Integer(i));
+				  summary.put(nums[i], index);
+			  }
+		   }
+	   }
+	   
+	   return false;
+	  }
 	
 	public static void main(String[] args) {
 		int[] t1 = {1,2,3,4,5,6,1};
