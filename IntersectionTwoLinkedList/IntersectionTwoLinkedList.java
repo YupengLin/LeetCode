@@ -34,7 +34,7 @@ public class IntersectionTwoLinkedList {
 	
 	public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 		ListNode tailA = reverseLinkedList(headA);
-		ListNode copyHeadA = (ListNode) headB.clone();
+		//ListNode copyHeadA = (ListNode) headB.clone();
 		ListNode tailB = reverseLinkedList(headB);
 		
 		printList(tailA);
