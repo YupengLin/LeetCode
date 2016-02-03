@@ -22,34 +22,7 @@ public class SearchForRange {
 	        while(start<=end){
 	            int mid=(start+end)/2;
 	            if(mid-1>0 && target>A[mid-1] && target<A[mid] ){
-	                index[0]=mid-1;
-	                index[1]=mid;
-	                return index;
 	            }
-	            if(mid+1<=len && target>A[mid] && target<A[mid+1]){
-	                index[0]=mid;
-	                index[1]=mid+1;
-	                return index;
-	            }
-	            if(target==A[mid]){
-	                index[0]=mid;
-	                index[1]=mid;
-	                if(mid-1>=0 && target==A[mid-1]){
-	                     index[0]=mid-1;
-	                }
-	                 if(mid+1<=len && target==A[mid+1]){
-	                     index[1]=mid+1;
-	                }
-	                return index;
-	            }
-	            
-	            if(target<A[mid]){
-	                end=mid-1;
-	            }
-	            if(target>A[mid]){
-	                start=mid+1;
-	            }
-	        }
 	        index[0]=-1;
 	        index[1]=-1;
 	        return index;
